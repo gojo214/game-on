@@ -1,6 +1,6 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { shadcn } from "@clerk/ui/themes";
-import { Geist, Geist_Mono } from "next/font/google"
+import { Fraunces, Geist, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -14,14 +14,19 @@ const fontMono = Geist_Mono({
   variable: "--font-mono",
 })
 
+const fontLogo = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-logo",
+})
+
 
 export const metadata: Metadata = {
   title: {
     default: "Gameon - Build 3D games with AI",
-    template: "%s . Sandbox"
+    template: "%s . Gameon"
   },
   description: 
-    "Describe a game and watch it comes to life. Sandbox is an agentic three.js game builder that plans the scene, writes the code, and streams playable worlds from plain English.",
+    "Describe a game and watch it comes to life. Gameon is an agentic three.js game builder that plans the scene, writes the code, and streams playable worlds from plain English.",
 
 }
 export default function RootLayout({
@@ -33,7 +38,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
+      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable, fontLogo.variable)}
     >
       <body>
         <ClerkProvider appearance={{ theme: shadcn }}>
